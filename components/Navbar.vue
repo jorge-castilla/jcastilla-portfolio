@@ -1,7 +1,7 @@
 <template>
   <section id="navbar">
     <div>
-        <p class="name-tag">
+        <p class="name-tag" @click='scrollTo(0)'>
             JCastilla
         </p>
 
@@ -40,9 +40,9 @@ export default {
             if(this.activeTab === 0){
                 this.selectorPosition = '0rem';
             }else if(this.activeTab ===1){
-                this.selectorPosition = '65px';
+                this.selectorPosition = '51px';
             }else{
-                this.selectorPosition = '130px';
+                this.selectorPosition = '102px';
             }
 
         },
@@ -61,14 +61,20 @@ export default {
     .name-tag{
         background: var(--pink);
         color: var(--white);
-        font-size: 55px;
+        font-size: 3.5rem;
         margin: 1rem 1rem;
         padding: 0px 10px;
+        transform: scale(1, 1.1);
+        cursor: pointer;
+        &:hover{
+            background: var(--hover-pink);
+        }
     }
 
         ul {
             color: var(--white);
-            font-size: 34px;
+            font-family: 'futura-md';
+            font-size: 24px;
             list-style-type: none;
             margin-top: 1rem;
             padding: 0px 3rem;
@@ -78,6 +84,7 @@ export default {
                 padding-left: 100px;
                 position: absolute;
                 width: 100%;
+                transition: 0.2s;
                 z-index: -1;
             }
             li{
@@ -86,6 +93,7 @@ export default {
                 margin: 0px 0px 1rem 1rem;
                 &.active{ color: var(--pink);}
                 svg{ width: 14px;}
+                transition: 0.2s;
             }
         }
     

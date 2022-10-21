@@ -3,6 +3,16 @@
   src: url('../fonts/futura_bold_font-webfont.woff') format('woff2'),
   url('../fonts/futura_bold_font-webfont.woff') format('woff');
 }
+@font-face {
+  font-family: "futura-md";
+  src: url('../fonts/futura_medium_bt-webfont.woff') format('woff2'),
+  url('../fonts/futura_medium_bt-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: "futura-lt";
+  src: url('../fonts/futura_light_font-webfont.woff') format('woff2'),
+  url('../fonts/futura_light_font-webfont.woff') format('woff');
+}
 body{
     font-family: "futura-bold" !important;
 }
@@ -20,6 +30,7 @@ body{
   --dark-blue: #043242;
   --white: #daeaf6;
   --black: #2b2b2b;
+  --hover-pink: #ff37a3;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -38,5 +49,5 @@ body{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-      background: #ff37a3;
+      background: var(--hover-pink);
   }
