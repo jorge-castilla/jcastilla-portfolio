@@ -21,3 +21,22 @@ body{
   --white: #daeaf6;
   --black: #2b2b2b;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--white);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      background: var(--pink);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+      background: #ff37a3;
+  }

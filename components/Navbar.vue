@@ -10,9 +10,9 @@
     
     <ul>
         <div class="active-bg" :style="{'top': selectorPosition}">&nbsp;</div>
-        <li :class="[activeTab === 0 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Start</li>
-        <li :class="[activeTab === 1 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Work</li>
-        <li :class="[activeTab === 2 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> About</li>
+        <li @click='scrollTo(0)' :class="[activeTab === 0 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Start</li>
+        <li @click='scrollTo(1)' :class="[activeTab === 1 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Work</li>
+        <li @click='scrollTo(2)' :class="[activeTab === 2 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> About</li>
     </ul>
 </div>
 
@@ -30,6 +30,9 @@ export default {
         }
     },
     methods:{
+        scrollTo(mult){
+            window.scrollTo(0, mult*window.innerHeight);
+        }
        
     },
     watch:{
@@ -78,6 +81,7 @@ export default {
                 z-index: -1;
             }
             li{
+                cursor: pointer;
                 font-weight: 500;
                 margin: 0px 0px 1rem 1rem;
                 &.active{ color: var(--pink);}
