@@ -1,7 +1,7 @@
 <template>
-  <section id="navbar">
+  <nav id="navbar">
     <div>
-        <p class="name-tag" @click='scrollTo(0)'>
+        <p class="name-tag" @click="$emit('scrollTo', 0)">
             JCastilla
         </p>
 
@@ -10,36 +10,30 @@
     
     <ul>
         <div class="active-bg" :style="{'top': selectorPosition}">&nbsp;</div>
-        <li @click='scrollTo(0)' :class="[activeTab === 0 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Start</li>
-        <li @click='scrollTo(1)' :class="[activeTab === 1 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Work</li>
-        <li @click='scrollTo(2)' :class="[activeTab === 2 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> About</li>
+        <li @click="$emit('scrollTo', 0)" :class="[activeSection === 0 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Start</li>
+        <li @click="$emit('scrollTo', 1)" :class="[activeSection === 1 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Work</li>
+        <li @click="$emit('scrollTo', 2)" :class="[activeSection === 2 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> About</li>
     </ul>
 </div>
 
-  </section>
+  </nav>
 </template>
 
 <script>
 export default {
     props:{
-        activeTab: Number,
+        activeSection: Number,
     },
     data(){
         return{
             selectorPosition: '0rem',
         }
     },
-    methods:{
-        scrollTo(mult){
-            window.scrollTo(0, mult*window.innerHeight);
-        }
-       
-    },
     watch:{
-        activeTab(){
-            if(this.activeTab === 0){
+        activeSection(){
+            if(this.activeSection === 0){
                 this.selectorPosition = '0rem';
-            }else if(this.activeTab ===1){
+            }else if(this.activeSection ===1){
                 this.selectorPosition = '51px';
             }else{
                 this.selectorPosition = '102px';
