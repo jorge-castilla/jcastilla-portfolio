@@ -90,6 +90,18 @@ export default {
                 transition: 0.2s;
             }
         }
+        @media screen and (min-width: 1px) and (max-width: 600px) {
+            .name-tag{
+                font-size: 2.5rem;
+            }
+            ul{
+                padding: 0px 1rem;
+                li{
+                    font-size: 20px;
+                    margin-bottom: 1.4rem;
+                }
+            }
+        }
     
 }
 </style>

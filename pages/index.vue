@@ -83,7 +83,7 @@ export default {
         if (this.activeSection > this.offsets.length - 1) this.activeSection = 0;
         this.scrollToSection(this.activeSection, true);
     },
-    touchStart(e) {
+    touchStart(e) {  // this method causes navbar to not be clickable
     e.preventDefault();
     this.touchStartY = e.touches[0].clientY;
     },
