@@ -1,14 +1,15 @@
 <template>
   <div>
     <Navbar :activeSection=activeSection @scrollTo="scrollToSection" />
-    <Hero />
+    <Hero @scrollTo="scrollToSection" />
     <Work />
     <About />
   </div>
 </template>
+<script src="https://kit.fontawesome.com/bb0ad17530.js" crossorigin="anonymous"></script>
 
 <script>
-
+import 'animate.css';
 export default {
   name: "IndexPage",
   data() {

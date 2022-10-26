@@ -1,13 +1,18 @@
 <template>
   <section id="hero" ref="hero">
-    <div class="main-container">
-      <h1>HELLO;</h1> 
-      <p>
-        I'M JORGE CASTILLA. FULLSTACK DEVELOPER. 
+    <div class="main-container ">
+      <h1 class="animate__animated animate__fadeIn">HEY!</h1> 
+      <p class="animate__animated animate__fadeIn">
+        SOY JORGE CASTILLA. DESARROLLADOR FULLSTACK. 
       </p>
 
     </div>
-    <button @click="scrollToAbout">Contact me!</button>
+    <button 
+    @click="$emit('scrollTo', 2)"
+    @mouseover = "buttonIsHovering = true"
+    @mouseout  = "buttonIsHovering = false"
+    :class='[buttonIsHovering ? "animate__animated animate__pulse" : ""]'
+    >¡Contáctame!</button>
 
     
   </section>
@@ -15,11 +20,11 @@
 
 <script>
 export default {
+  data(){
+  return {
+    buttonIsHovering: false,
+  }},
   methods:{
-    scrollToAbout(){
-            window.scrollTo(0, 2*window.innerHeight);
-            // to begin of contact section, typable
-        }
   }
 }
 </script>

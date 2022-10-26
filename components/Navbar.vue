@@ -102,6 +102,30 @@ export default {
                 }
             }
         }
+        @media screen and (max-width: 400px) {
+
+}
+@media screen and (min-width: 400px) and (max-width: 600px) {
+
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    .name-tag{
+        font-size: 2.5rem;
+    }
+    
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .name-tag{
+        font-size: 2.8rem;
+    }
+    
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .name-tag{
+        font-size: 3rem;
+    }
+
+}
     
 }
 </style>
