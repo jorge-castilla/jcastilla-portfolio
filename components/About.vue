@@ -4,7 +4,9 @@
         <div class="main-container">
 
             <div class="image-container">
-                <img src="../assets/images/portrait.png" id="portrait" alt="Jorge Castilla">
+                <div id="portrait">
+
+                </div>
                 <div class="stack">
                     <img src="../assets/icons/javascript_logo.png" alt="Javascript">
                     <img src="../assets/icons/php_logo.png" alt="PHP">
@@ -158,10 +160,27 @@ export default {
 
             #portrait {
                 border: 4px var(--pink) solid;
+                position: relative;
+                display: block;
                 width: 360px;
                 height: 580px;
+                background: linear-gradient(to top, #0d8abc60, #ff008c36), url('../assets/images/portrait.png') no-repeat;
+                transition: 1s;
 
-                &:hover {}
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    background: url('../assets/images/portrait.png') no-repeat;
+                    opacity: 0;
+                    transition: all 1s ease-in-out;
+                }
+                &:hover:after{
+                    opacity:1;
+                }
 
             }
         }
