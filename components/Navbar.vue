@@ -92,13 +92,14 @@ export default {
         }
         @media screen and (min-width: 1px) and (max-width: 600px) {
             .name-tag{
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             ul{
-                padding: 0px 1rem;
+                
+                padding: 7px 1rem;
                 li{
-                    font-size: 20px;
-                    margin-bottom: 1.4rem;
+                    font-size: 16px;
+                    margin-bottom: 1.7rem;
                 }
             }
         }

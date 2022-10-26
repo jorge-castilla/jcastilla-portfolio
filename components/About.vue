@@ -7,26 +7,35 @@
                 <div id="portrait">
 
                 </div>
-                <div class="stack">
-                    <img src="../assets/icons/javascript_logo.png" alt="Javascript">
-                    <img src="../assets/icons/php_logo.png" alt="PHP">
-                    <img src="../assets/icons/vue_logo.png" alt="Vue">
-                    <img src="../assets/icons/laravel_logo.png" alt="Laravel">
-                    <img src="../assets/icons/node_logo.png" alt="Node">
-                    <img src="../assets/icons/bootstrap_logo.png" alt="Bootstrap">
+                <div class="stack-button">
+                    <div class="stack" v-if="windowWidth >= 600">
+                        <img src="../assets/icons/javascript_logo.png" alt="Javascript">
+                        <img src="../assets/icons/php_logo.png" alt="PHP">
+                        <img src="../assets/icons/vue_logo.png" alt="Vue">
+                        <img src="../assets/icons/laravel_logo.png" alt="Laravel">
+                        <img src="../assets/icons/node_logo.png" alt="Node">
+                        <img src="../assets/icons/bootstrap_logo.png" alt="Bootstrap">
+                    </div>
+                    <button v-if="windowWidth < 768">¡Háblame!</button>
                 </div>
-                <button v-if="windowWidth < 768">¡Háblame!</button>
             </div>
 
             <div>
 
                 <div>
-                    <h1>
+                    <h1 @click="() => {
+                        if (!showWho && windowWidth <= 600) {
+                            showWho = !showWho
+                            showWhat = false
+                        }
+                    }
+                    ">
                         <b-icon-arrow-right></b-icon-arrow-right>¿Quien soy?
                     </h1>
 
 
-                    <p>Soy un desarrollador web fullstack radicado en Chile. Me gusta analizar el mundo que nos rodea
+                    <p v-if="showWho">Soy un desarrollador web fullstack radicado en Chile. Me gusta analizar el mundo
+                        que nos rodea
                         desde
                         todos los puntos de vista posibles, aprendiendo lo más posible de las personas y desafíos que
                         encuentro
@@ -37,11 +46,17 @@
 
                 </div>
                 <div>
-                    <h1>
+                    <h1 @click="() => {
+                        if (!showWhat && windowWidth <= 600) {
+                            showWhat = !showWhat
+                            showWho = false
+                        }
+                    }">
                         <b-icon-arrow-right class="right-arrow"></b-icon-arrow-right>¿Qué puedo hacer?
                     </h1>
 
-                    <p>Soy capaz de convertir problemas dificiles en soluciones simples y eficientes, proponiendo
+                    <p v-if="showWhat">Soy capaz de convertir problemas dificiles en soluciones simples y eficientes,
+                        proponiendo
                         alternativas basadas en mis conocimientos y capacidades analíticas. Estoy siempre dispuesto a
                         mejorar y ofrecer mi ayuda e interés en los proyectos de los que formo parte.
                     </p>
@@ -65,9 +80,14 @@ export default {
         return {
             windowHeight: window.innerHeight,
             windowWidth: window.innerWidth,
+            showWho: true,
+            showWhat: true,
         }
     },
     mounted() {
+        if (this.windowWidth <= 600) {
+            this.showWhat = false;
+        }
         this.$nextTick(() => {
             window.addEventListener('resize', this.onResize);
         })
@@ -80,6 +100,12 @@ export default {
         onResize() {
             this.windowHeight = window.innerHeight
             this.windowWidth = window.innerWidth
+            if (this.windowWidth <= 600) {
+                this.showWho = true;
+                this.showWhat = false;
+            } else {
+                this.showWhat = true;
+            }
         }
     },
 }
@@ -102,6 +128,7 @@ export default {
         display: grid;
         grid-template-columns: 25vw 50vw;
         gap: 20px;
+        min-height: 70vh;
         max-height: 90vh;
         width: min-content;
 
@@ -120,6 +147,11 @@ export default {
 
             img {
                 width: 48px;
+                max-width: 100%;
+
+                &:hover {
+                    opacity: 0.5;
+                }
             }
         }
 
@@ -164,8 +196,14 @@ export default {
                 display: block;
                 width: 360px;
                 height: 580px;
-                background: linear-gradient(to top, #0d8abc60, #ff008c36), url('../assets/images/portrait.png') no-repeat;
+                background: linear-gradient(to top, #0d8abc60, #ff008c36), url('../assets/images/portrait.png') no-repeat center;
+                background-size: cover;
+                resize: both;
                 transition: 1s;
+
+                &:hover {
+                    border: 4px var(--pink) dashed;
+                }
 
                 &:after {
                     content: '';
@@ -174,12 +212,16 @@ export default {
                     top: 0px;
                     right: 0px;
                     bottom: 0px;
-                    background: url('../assets/images/portrait.png') no-repeat;
+                    background: url('../assets/images/portrait.png') no-repeat center;
+                    background-size: cover;
+                    resize: both;
                     opacity: 0;
                     transition: all 1s ease-in-out;
                 }
-                &:hover:after{
-                    opacity:1;
+
+                &:hover:after {
+                    opacity: 1;
+
                 }
 
             }
@@ -205,9 +247,135 @@ export default {
 
     }
 
-    @media screen and (max-width: 400px) {}
+    @media screen and (min-width: 320px) and (max-width: 420px) {
+        .main-container {
 
-    @media screen and (min-width: 400px) and (max-width: 600px) {}
+            margin: 30px 0px 0px 12px;
+            grid-template-columns: 75vw;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 0px;
+
+            div {
+                margin: 1px 2px;
+            }
+
+            .image-container {
+                padding-top: 12px;
+                flex-direction: column;
+                gap: 0px;
+
+                #portrait {
+                    max-width: 150px;
+                    max-height: 150px;
+                }
+
+                button {
+                    border: 0px solid #fff;
+                    background: var(--white);
+                    color: var(--pink);
+                    font-size: 22px;
+                    min-width: 150px;
+                    padding: 5px 10px;
+                    box-shadow: 0 0 1px 2px var(--pink) inset;
+                }
+
+                .stack-button {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .stack {
+                        margin: 0px;
+                        width: 100px;
+                        max-width: 180px;
+                        gap: 5px;
+
+                    }
+
+                    img {
+                        width: 20px;
+                    }
+
+                }
+
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+                padding: 10px;
+                text-align: justify;
+                text-justify: inter-word;
+            }
+        }
+    }
+
+    @media screen and (min-width: 420px) and (max-width: 600px) {
+
+        .main-container {
+
+            margin: 30px 0px 0px 12px;
+            grid-template-columns: 75vw;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 0px;
+
+            .image-container {
+                padding-top: 12px;
+                flex-direction: row;
+
+                #portrait {
+                    max-width: 150px;
+                    max-height: 150px;
+                }
+
+                button {
+                    border: 0px solid #fff;
+                    background: var(--white);
+                    color: var(--pink);
+                    font-size: 22px;
+                    min-width: fit-content;
+                    padding: 5px 10px;
+                    box-shadow: 0 0 1px 2px var(--pink) inset;
+                }
+
+                .stack-button {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .stack {
+                        margin: 0px;
+                        width: 100px;
+                        max-width: 180px;
+                        gap: 5px;
+
+                    }
+
+                    img {
+                        width: 20px;
+                    }
+
+                }
+
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 16px;
+                text-align: justify;
+                text-justify: inter-word;
+            }
+        }
+
+
+    }
+
 
     @media screen and (min-width: 600px) and (max-width: 768px) {
         .main-container {
