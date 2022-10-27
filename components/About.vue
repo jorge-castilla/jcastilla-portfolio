@@ -16,7 +16,7 @@
                         <img src="../assets/icons/node_logo.png" alt="Node">
                         <img src="../assets/icons/bootstrap_logo.png" alt="Bootstrap">
                     </div>
-                    <button v-if="windowWidth < 768">¡Háblame!</button>
+                    <b-button v-if="windowWidth < 768" @click="$bvModal.show('modal-contact')">¡Háblame!</b-button>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="btn-container">
-            <button v-if="windowWidth >= 768">¡Háblame!</button>
+            <b-button v-if="windowWidth >= 768" @click="$bvModal.show('modal-contact')">¡Háblame!</b-button>
         </div>
 
 

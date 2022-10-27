@@ -7,12 +7,14 @@
       </p>
 
     </div>
-    <button 
-    @click="$emit('scrollTo', 2)"
+    <!-- Button trigger modal -->
+
+    <b-button 
+    @click="$bvModal.show('modal-contact')"
     @mouseover = "buttonIsHovering = true"
     @mouseout  = "buttonIsHovering = false"
     :class='[buttonIsHovering ? "animate__animated animate__pulse" : ""]'
-    >¡Contáctame!</button>
+    >¡Contáctame!</b-button>
 
     
   </section>
