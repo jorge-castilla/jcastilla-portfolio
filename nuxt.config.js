@@ -40,6 +40,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    "vue-toastification/nuxt",
   ],
   bootstrapVue: {
     icons: true

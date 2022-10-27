@@ -2,7 +2,7 @@
     <div>
         <Modal />
         <Navbar :activeSection=activeSection @scrollTo="scrollToSection" />
-        <Hero @scrollTo="scrollToSection" />
+        <Hero />
         <Work />
         <About />
     </div>
@@ -22,16 +22,23 @@ export default {
         }
     },
     mounted() {
+        window.addEventListener('scroll', this.checkScrollPosition);
         window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
         window.addEventListener('mousewheel', this.handleMouseWheel, {
             passive: false
         }); // Other browsers
-        window.addEventListener('touchstart', this.touchStart, {
+        window.addEventListener('touchstart', this.checkScrollPosition, {
             passive: false
         }); // mobile devices
-        window.addEventListener('touchmove', this.touchMove, {
+        window.addEventListener('touchmove', this.checkScrollPosition, {
             passive: false
         }); // mobile devices
+        // window.addEventListener('touchstart', this.touchStart, {
+        //     passive: false
+        // }); // mobile devices
+        // window.addEventListener('touchmove', this.touchMove, {
+        //     passive: false
+        // }); // mobile devices
         this.calculateSectionOffsets();
     },
     destroyed() {
@@ -42,6 +49,7 @@ export default {
 
         window.removeEventListener('touchstart', this.touchStart); // mobile devices
         window.removeEventListener('touchmove', this.touchMove); // mobile devices
+
     },
     methods: {
         calculateSectionOffsets() {
@@ -85,7 +93,7 @@ export default {
             this.scrollToSection(this.activeSection, true);
         },
         touchStart(e) {  // this method causes navbar to not be clickable
-            e.preventDefault();
+            // e.preventDefault();
             this.touchStartY = e.touches[0].clientY;
         },
         touchMove(e) {
@@ -100,7 +108,8 @@ export default {
             this.touchStartY = 0;
             return false;
         },
-    }
+    },
+
 }
 
 </script>
