@@ -12,8 +12,6 @@
   <style lang="scss">
   #work{
       background-color: var(--blue);
-      height: 100vh;
-      width: 100%;
   }
   
   </style>

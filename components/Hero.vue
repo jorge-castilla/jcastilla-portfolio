@@ -34,8 +34,7 @@ export default {
 <style lang="scss" scoped>
 #hero{
     background-color: var(--sky-blue);
-    height: 100vh;
-    width: 100%;
+
     display: grid;
     grid-template-columns: repeat(20, 5vw);
     grid-template-rows: repeat(20, 5vh);

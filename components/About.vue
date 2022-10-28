@@ -114,8 +114,6 @@ export default {
 <style lang="scss">
 #about {
     background-color: var(--dark-blue);
-    height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

@@ -3,7 +3,8 @@
     <div>
         <b-modal id="modal-contact" hide-footer hide-header>
 
-            <h1 class="my-2 mx-2">¡Hablemos!</h1>
+            <b-row class="my-2 mx-2 flex justify-content-between"><h1>¡Hablemos!</h1><a @click="()=>{this.$bvModal.hide('modal-contact')}" style="cursor: pointer; font-size:20px"><b-icon-x-square-fill></b-icon-x-square-fill></a></b-row>
+           
 
             <b-row class="my-2 mx-2" v-for="input in inputs" :key="input.input">
 

@@ -113,3 +113,11 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+section{
+    height: 100vh;
+    width: 100%;
+}
+
+</style>
