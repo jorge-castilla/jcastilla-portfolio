@@ -5,7 +5,7 @@
 
             <b-row class="my-2 mx-2 flex justify-content-between">
                 <h1>¡Hablemos!</h1><a @click="() => { this.$bvModal.hide('modal-contact') }"
-                    style="cursor: pointer; font-size:20px">
+                    class="x-icon">
                     <b-icon-x-square-fill></b-icon-x-square-fill>
                 </a>
             </b-row>
@@ -128,9 +128,18 @@ export default {
 
 <style lang="scss">
 #modal-contact {
+    .x-icon{
+        cursor: pointer; 
+        font-size:2vh;
+        text-decoration: none;
+        color: var(--pink);
+        &:hover{
+            color: var(--hover-pink);
+        }
+    }
     .modal-body {
+        
         border: 5px var(--sky-blue) dashed;
-
         background: var(--white);
         color: var(--pink);
 
@@ -156,10 +165,10 @@ export default {
             background: var(--pink);
             color: var(--white);
             font-size: 2.5vh;
-            padding: 1px 12px;
+            padding: 1px 1.5em;
 
             &:hover {
-                box-shadow: 0 0 1px 2px var(--hover-pink) inset;
+                background: var(--hover-pink);
             }
         }
     }
