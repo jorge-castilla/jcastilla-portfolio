@@ -23,7 +23,7 @@
             Soy un desarrollador web fullstack radicado en Chile. Me gusta analizar el mundo
             que nos rodea
             desde
-            todos los puntos de vista posibles, aprendiendo lo más posible de las personas y desafíos que
+            todos los puntos de vista posibles, aprendiendo cuanto pueda de las personas y desafíos que
             encuentro
             en mi camino.
             Si no me encuentro desarrollando un proyecto, estoy creando música o leyendo sobre algo
