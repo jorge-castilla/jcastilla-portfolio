@@ -3,43 +3,35 @@
     <div>
         <b-modal id="modal-contact" hide-footer hide-header>
 
-            <b-row class="my-2 mx-2 flex justify-content-between"><h1>¡Hablemos!</h1><a @click="()=>{this.$bvModal.hide('modal-contact')}" style="cursor: pointer; font-size:20px"><b-icon-x-square-fill></b-icon-x-square-fill></a></b-row>
-           
+            <b-row class="my-2 mx-2 flex justify-content-between">
+                <h1>¡Hablemos!</h1><a @click="() => { this.$bvModal.hide('modal-contact') }"
+                    style="cursor: pointer; font-size:20px">
+                    <b-icon-x-square-fill></b-icon-x-square-fill>
+                </a>
+            </b-row>
+
 
             <b-row class="my-2 mx-2" v-for="input in inputs" :key="input.input">
 
-                <label 
-                    class="ml-2"
-                    :for="input.input">
+                <label class="ml-2" :for="input.input">
                     {{ input.input }}:
                 </label>
 
-                <b-form-input 
-                    v-if="input.input != 'Mensaje'" 
-                    :id="`${input.input}`" 
-                    :type="input.type"
-                    v-model="input.value"
-                    :class="[input.validated ? '' : 'border-pink']"
-                    >
-                    
+                <b-form-input v-if="input.input != 'Mensaje'" :id="`${input.input}`" :type="input.type"
+                    v-model="input.value" :class="[input.validated ? '' : 'border-pink']">
+
                 </b-form-input>
 
-                <b-form-textarea v-else 
-                    id="textarea" 
-                    v-model="input.value" 
-                    placeholder="Escribe tu mensaje..." 
-                    rows="4"
-                    :class="[input.validated ? '' : 'border-pink']"
-                    max-rows="8">
+                <b-form-textarea v-else id="textarea" v-model="input.value" placeholder="Escribe tu mensaje..." rows="4"
+                    :class="[input.validated ? '' : 'border-pink']" max-rows="8">
                 </b-form-textarea>
 
 
             </b-row>
             <b-row class="mt-4 mr-3">
 
-                <button class="ml-auto" 
-                    @click="validateForm" >
-                    
+                <button class="ml-auto" @click="validateForm">
+
                     Enviar
                 </button>
             </b-row>
@@ -65,33 +57,33 @@ export default {
     methods: {
         validateForm() {
             var validated = true;
-            if(this.inputs[0].value === ''){
+            if (this.inputs[0].value.length <= 3) {
                 this.inputs[0].validated = false;
                 validated = false;
-            }else{
+            } else {
                 this.inputs[0].validated = true;
             }
-            if(this.inputs[1].value === ''){
+            if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.inputs[1].value))) {
                 this.inputs[1].validated = false;
                 validated = false;
-            }else{
-                this.inputs[0].validated = true;
+            } else {
+                this.inputs[1].validated = true;
             }
-            if(this.inputs[2].value === ''){
+            if (this.inputs[2].value.length <= 3) {
                 this.inputs[2].validated = false;
                 validated = false;
-            }else{
-                this.inputs[0].validated = true;
+            } else {
+                this.inputs[2].validated = true;
             }
-            if(this.inputs[3].value === ''){
+            if (this.inputs[3].value <= 5) {
                 this.inputs[3].validated = false;
                 validated = false;
-            }else{
-                this.inputs[0].validated = true;
+            } else {
+                this.inputs[3].validated = true;
             }
-            if(validated){
+            if (validated) {
                 this.sendEmail();
-            }else{
+            } else {
                 this.$toast.error("Hay un error en el formulario 😱");
             }
 
@@ -135,30 +127,35 @@ export default {
 </script>
 
 <style lang="scss">
-#modal-contact{
-    .modal-body{
-        border: 8px var(--sky-blue) dashed;
+#modal-contact {
+    .modal-body {
+        border: 5px var(--sky-blue) dashed;
 
         background: var(--white);
         color: var(--pink);
-        label{
-            font-size: 20px;
+
+        label {
+            font-size: 2vh;
         }
-        input{
+
+        input {
             color: var(--pink);
-            font-size: 18px;
-            &:focus{
+            font-size: 1.8vh;
+
+            &:focus {
                 border-color: var(--sky-blue);
             }
         }
-        textarea::placeholder{
+
+        textarea::placeholder {
             color: var(--pink);
         }
+
         button {
             border: 0px solid #fff;
             background: var(--pink);
             color: var(--white);
-            font-size: clamp(16px, 32px, 40px);
+            font-size: 2.5vh;
             padding: 1px 12px;
 
             &:hover {
@@ -166,11 +163,13 @@ export default {
             }
         }
     }
-    
-    h1{
+
+    h1 {
+        font-size: 4vh;
         color: var(--pink);
     }
-    .border-pink{
+
+    .border-pink {
         border-color: var(--pink);
     }
 }

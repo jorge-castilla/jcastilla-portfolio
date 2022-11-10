@@ -6,7 +6,7 @@
         </p>
 
     </div>
-<div>
+<!-- <div>
     
     <ul>
         <div class="active-bg" :style="{'top': selectorPosition}">&nbsp;</div>
@@ -14,7 +14,7 @@
         <li @click="$emit('scrollTo', 1)" :class="[activeSection === 1 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Work</li>
         <li @click="$emit('scrollTo', 2)" :class="[activeSection === 2 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> About</li>
     </ul>
-</div>
+</div> -->
 
   </nav>
 </template>
@@ -48,23 +48,22 @@ export default {
 <style lang="scss" scoped>
 #navbar{
     display: flex;
-    height: 5vh;
     justify-content: space-between;
     position: fixed;
     width: 100%;
+    z-index: 10;
     .name-tag{
         background: var(--pink);
         color: var(--white);
-        font-size: 3.5rem;
-        margin: 1rem 1rem;
-        padding: 0px 10px;
+        font-size: 6vh;
+        margin: 0.3em 0.3em;
+        padding: 0px 0.2em;
         transform: scale(1, 1.1);
         cursor: pointer;
         &:hover{
             background: var(--hover-pink);
         }
     }
-
         ul {
             color: var(--white);
             font-family: 'futura-md';
@@ -89,44 +88,5 @@ export default {
                 svg{ width: 14px;}
                 transition: 0.2s;
             }
-        }
-        @media screen and (min-width: 1px) and (max-width: 600px) {
-            .name-tag{
-                font-size: 2rem;
-            }
-            ul{
-                
-                padding: 7px 1rem;
-                li{
-                    font-size: 16px;
-                    margin-bottom: 1.7rem;
-                }
-            }
-        }
-        @media screen and (max-width: 400px) {
-
-}
-@media screen and (min-width: 400px) and (max-width: 600px) {
-
-}
-@media screen and (min-width: 600px) and (max-width: 768px) {
-    .name-tag{
-        font-size: 2.5rem;
-    }
-    
-}
-@media screen and (min-width: 768px) and (max-width: 992px) {
-    .name-tag{
-        font-size: 2.8rem;
-    }
-    
-}
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-    .name-tag{
-        font-size: 3rem;
-    }
-
-}
-    
-}
+        }}
 </style>
