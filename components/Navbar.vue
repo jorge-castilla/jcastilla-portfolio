@@ -1,7 +1,7 @@
 <template>
   <nav id="navbar">
     <div>
-        <p class="name-tag" @click="$emit('scrollTo', 0)">
+        <p class="name-tag">
             JCastilla
         </p>
 
@@ -16,7 +16,7 @@ export default {
     },
     data(){
         return{
-            selectorPosition: '0rem',
+
         }
     },
     watch:{
