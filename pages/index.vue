@@ -1,7 +1,7 @@
 <template>
     <div>
         <Modal />
-        <Navbar :activeSection=activeSection @scrollTo="scrollToSection" />
+        <Navbar />
         <Hero />
         <Work />
         <About />
@@ -14,11 +14,7 @@ export default {
     name: "IndexPage",
     data() {
         return {
-            activeSection: 0,
-            inMove: false,
-            inMoveDelay: 400,
-            offsets: [],
-            touchStartY: 0,
+
         }
     },
     mounted() {

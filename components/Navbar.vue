@@ -6,15 +6,6 @@
         </p>
 
     </div>
-<!-- <div>
-    
-    <ul>
-        <div class="active-bg" :style="{'top': selectorPosition}">&nbsp;</div>
-        <li @click="$emit('scrollTo', 0)" :class="[activeSection === 0 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Start</li>
-        <li @click="$emit('scrollTo', 1)" :class="[activeSection === 1 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> Work</li>
-        <li @click="$emit('scrollTo', 2)" :class="[activeSection === 2 ? 'active' : '']"><b-icon-record-circle-fill></b-icon-record-circle-fill> About</li>
-    </ul>
-</div> -->
 
   </nav>
 </template>
@@ -22,7 +13,6 @@
 <script>
 export default {
     props:{
-        activeSection: Number,
     },
     data(){
         return{
@@ -30,16 +20,7 @@ export default {
         }
     },
     watch:{
-        activeSection(){
-            if(this.activeSection === 0){
-                this.selectorPosition = '0rem';
-            }else if(this.activeSection ===1){
-                this.selectorPosition = '51px';
-            }else{
-                this.selectorPosition = '102px';
-            }
 
-        },
     }
 
 }
