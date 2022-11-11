@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import 'animate.css';
 export default {
     name: "IndexPage",
     data() {
