@@ -39,7 +39,12 @@
             mejorar y ofrecer mi ayuda e interés en los proyectos de los que formo parte.
         </p>
     </div>
-    <b-button @click="$bvModal.show('modal-contact')" class="my-2">¡Háblame!</b-button>
+    <div class="btn-container d-flex align-items-center justify-content-center flex-wrap">
+        
+        <b-button @click="$bvModal.show('modal-contact')" class="my-2 about-btn">¡Háblame!</b-button>
+        <a href="Curriculum Vitae Jorge Castilla.pdf" download><b-icon-file-earmark-text-fill class="about-icon"></b-icon-file-earmark-text-fill></a>
+        <a href="https://github.com/jorge-castilla" target="_blank"><b-icon-github class="about-icon"></b-icon-github></a>
+    </div>
 </div>
 </div>
 
@@ -57,6 +62,19 @@ export default {
 </script>
   
 <style lang="scss">
+.about-icon{
+    text-decoration: none;
+    font-size: 4vh;
+    color: var(--white);
+    transition: 450ms;
+    &:hover{
+        color: var(--pink);
+    }
+margin: 1em 0.5em 1em 0.5em;
+}
+.about-btn{
+    margin: 0px 0.5em 0px 0.5em;
+}
 #portrait {
     width: 35vmin;
     max-width: 350px;
