@@ -45,7 +45,7 @@
                 <div class="btn-container d-flex align-items-center justify-content-center flex-wrap">
 
                     <b-button @click="$bvModal.show('modal-contact')" class="my-2 about-btn">¡Háblame!</b-button>
-                    <a href="Curriculum Vitae Jorge Castilla.pdf" download>
+                    <a href="CV Jorge Castilla.pdf" download>
                         <b-icon-file-earmark-text-fill class="about-icon"></b-icon-file-earmark-text-fill>
                     </a>
                     <a href="https://github.com/jorge-castilla" target="_blank">

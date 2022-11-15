@@ -6,7 +6,7 @@
             <b-row class="my-2 mx-2 flex justify-content-between">
                 <div class="btn-container d-flex align-items-center justify-content-center flex-wrap">
                     <h1>¡Hablemos!</h1>
-                    <a href="Curriculum Vitae Jorge Castilla.pdf" download>
+                    <a href="CV Jorge Castilla.pdf" download>
                         <b-icon-file-earmark-text-fill class="about-icon"></b-icon-file-earmark-text-fill>
                     </a>
                     <a href="https://github.com/jorge-castilla" target="_blank">
