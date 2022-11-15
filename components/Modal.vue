@@ -4,7 +4,17 @@
         <b-modal id="modal-contact" hide-footer hide-header>
 
             <b-row class="my-2 mx-2 flex justify-content-between">
-                <h1>¡Hablemos!</h1><a @click="() => { this.$bvModal.hide('modal-contact') }" class="x-icon">
+                <div class="btn-container d-flex align-items-center justify-content-center flex-wrap">
+                    <h1>¡Hablemos!</h1>
+                    <a href="Curriculum Vitae Jorge Castilla.pdf" download>
+                        <b-icon-file-earmark-text-fill class="about-icon"></b-icon-file-earmark-text-fill>
+                    </a>
+                    <a href="https://github.com/jorge-castilla" target="_blank">
+                        <b-icon-github class="about-icon"></b-icon-github>
+                    </a>
+                </div>
+
+                <a @click="() => { this.$bvModal.hide('modal-contact') }" class="x-icon">
                     <b-icon-x-square-fill></b-icon-x-square-fill>
                 </a>
             </b-row>
@@ -88,15 +98,28 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 #modal-contact {
     .theme--light.v-text-field>.v-input__control>.v-input__slot:before {
         border-color: var(--pink);
     }
 
+    .about-icon {
+        text-decoration: none;
+        font-size: 3vh;
+        color: var(--pink);
+        transition: 450ms;
+        margin-left: 1em;
+
+        &:hover {
+            color: var(--hover-pink);
+        }
+
+    }
+
     .x-icon {
         cursor: pointer;
-        font-size: 2vh;
+        font-size: clamp(20px, 2vh, 2vh);
         text-decoration: none;
         color: var(--pink);
 
