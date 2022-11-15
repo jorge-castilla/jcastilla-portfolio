@@ -12,13 +12,13 @@
 
             <v-form lazy-validation v-model="valid" ref="form">
                 <v-container class="text-center">
-                    <v-text-field label="Nombre" type="Text" :min="0" :counter="20" v-model="field_1" :rules="rule_1">
+                    <v-text-field label="Nombre" type="Text" :min="1" :counter="20" v-model="field_1" :rules="rule_1">
                     </v-text-field>
-                    <v-text-field label="Email" type="Email" :min="0" :counter="30" v-model="field_2" :rules="rule_2">
+                    <v-text-field label="Email" type="Email" :min="5" :counter="50" v-model="field_2" :rules="rule_2">
                     </v-text-field>
-                    <v-text-field label="Asunto" type="Text" :min="0" :counter="25" v-model="field_3" :rules="rule_3">
+                    <v-text-field label="Asunto" type="Text" :min="3" :counter="25" v-model="field_3" :rules="rule_3">
                     </v-text-field>
-                    <v-textarea label="Mensaje" :min="0" :counter="0" :value="field_4" :rules="rule_4"></v-textarea>
+                    <v-textarea label="Mensaje" :min="5" :counter="500" :v-model="field_4" :rules="rule_4"></v-textarea>
                     <v-btn color="accent" elevation="2" class="mt-4" @click="sendEmail">Enviar</v-btn>
                 </v-container>
             </v-form>
@@ -38,10 +38,10 @@ export default {
             field_2: '',
             field_3: '',
             field_4: '',
-            rule_1: [v => !!v || "el nombre es requerido.", v => v.length <= 20 || "Max 20 characters",],
-            rule_2: [v => !!v || "El email es requerido.", v => v.length <= 30 || "Max 30 characters", v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || "El correo debe ser válido.",],
-            rule_3: [v => !!v || "El asunto es requerido.", v => v.length <= 25 || "Max 25 characters",],
-            rule_4: [v => !!v || "Un mensaje es requerido.",],
+            rule_1: [v => !!v || "el nombre es requerido.", v => v.length <= 20 || "Máximo 20 caracteres",],
+            rule_2: [v => !!v || "El email es requerido.", v => v.length <= 50 || "Máximo 50 caracteres", v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || "El correo debe ser válido.",],
+            rule_3: [v => !!v || "El asunto es requerido.", v => v.length <= 25 || "Máximo 25 caracteres",],
+            rule_4: [v => !!v || "Un mensaje es requerido.",v => v.length <= 500 || "Máximo 500 caracteres",],
         }
     },
     methods: {
