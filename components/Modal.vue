@@ -18,7 +18,7 @@
                     </v-text-field>
                     <v-text-field label="Asunto" type="Text" :min="3" :counter="25" v-model="field_3" :rules="rule_3">
                     </v-text-field>
-                    <v-textarea label="Mensaje" :min="5" :counter="500" :v-model="field_4" :rules="rule_4"></v-textarea>
+                    <v-textarea label="Mensaje" :min="5" :counter="500" v-model="field_4" :rules="rule_4"></v-textarea>
                     <v-btn color="accent" elevation="2" class="mt-4" @click="sendEmail">Enviar</v-btn>
                 </v-container>
             </v-form>
@@ -41,7 +41,7 @@ export default {
             rule_1: [v => !!v || "el nombre es requerido.", v => v.length <= 20 || "Máximo 20 caracteres",],
             rule_2: [v => !!v || "El email es requerido.", v => v.length <= 50 || "Máximo 50 caracteres", v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || "El correo debe ser válido.",],
             rule_3: [v => !!v || "El asunto es requerido.", v => v.length <= 25 || "Máximo 25 caracteres",],
-            rule_4: [v => !!v || "Un mensaje es requerido.",v => v.length <= 500 || "Máximo 500 caracteres",],
+            rule_4: [v => !!v || "Un mensaje es requerido.",],
         }
     },
     methods: {
